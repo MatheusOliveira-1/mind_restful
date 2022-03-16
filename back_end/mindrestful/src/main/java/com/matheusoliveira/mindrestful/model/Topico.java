@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "tb_toppicos")
+@Table(name = "tb_topicos")
 public class Topico {
 	
 	@Id

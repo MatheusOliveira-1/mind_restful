@@ -37,7 +37,7 @@ public class Postagem {
 	
 	//Incluir @ManyToOne Topico
 	//Incluir @ManyToOne Usuario
-	//Incluir @ManyToMany Comentario
+	//Incluir @OneToMany Comentario
 	
 
 	public Long getId() {
