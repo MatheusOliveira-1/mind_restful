@@ -24,7 +24,7 @@ public class Topico {
 	@Size(max = 255, message = "O descricao deve ter no máximo 255 caracteres")
 	private String descricao;
 
-	//Criar relacao @OneToMany com Postagem
+	//Incluir @OneToMany com Postagem
 	
 	public Long getId() {
 		return Id;
