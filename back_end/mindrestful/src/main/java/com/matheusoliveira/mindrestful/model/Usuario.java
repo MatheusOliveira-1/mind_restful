@@ -1,5 +1,8 @@
 package com.matheusoliveira.mindrestful.model;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "tb_usuarios")
@@ -33,6 +38,11 @@ public class Usuario {
 	@NotBlank
 	@Size(min = 8, max = 255, message = "A senha deve ter no máximo 255 caracteres")
 	private String senha;
+	
+	@Column(name = "data_nascimento")
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@NotBlank(message = "A data de nascimento é obrigatória!")
+	private LocalDate dataNascimento;
 	
 	private int tempoLogado;
 	
