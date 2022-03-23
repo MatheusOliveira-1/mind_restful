@@ -8,29 +8,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "tb_comentarios")
-public class Comentario {
+@Table(name = "tb_notificacoes")
+public class Notificacao {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@NotBlank(message = "O comentário não pode ser publicado em branco")
-	@Size(message = "O comentário deve ter no máximo 255 caracteres")
-	private String texto;
-	
+
 	@UpdateTimestamp
 	private LocalDateTime data;
 	
+	@NotBlank(message = "O comentário não pode ser publicado em branco")
+	private String texto;
 	
 	//Incluir @ManyToOne Usuario
-	//Incluir @ManyToOne Postagem
-	//Incluir @OneToMany ResComentario
+	//Incluir @OneToOne Comentario
+	//Incluir @OneToOne ResComentario
 
 	public Long getId() {
 		return id;
@@ -40,14 +36,6 @@ public class Comentario {
 		this.id = id;
 	}
 
-	public String getTexto() {
-		return texto;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
-
 	public LocalDateTime getData() {
 		return data;
 	}
@@ -55,5 +43,15 @@ public class Comentario {
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+	
+	
 
 }
